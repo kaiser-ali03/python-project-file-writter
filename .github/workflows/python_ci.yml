@@ -5,7 +5,7 @@ name: Python  file writer CI #name of script
 on: 
   push: 
     branches: 
-      - 'main'
+      - 'master'
   pull_request:
     branches:
       - 'main'  #we can also write this ["main"]
