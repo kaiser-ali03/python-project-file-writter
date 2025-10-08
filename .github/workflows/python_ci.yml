@@ -1,0 +1,41 @@
+name: Python  file writer CI #name of script 
+#on is when we want to run , when push
+#used github actions extension to resolve bugs
+
+on: 
+  push: 
+    branches: 
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'  #we can also write this ["main"]
+
+jobs: #it is what we want to run
+       
+  test:
+    runs-on:  ubuntu-latest
+
+
+    steps:
+        -  name: Checkout code
+           uses: actions/checkout@v5
+
+        - name: Test Project
+          run: echo "Building the Project"
+
+        - name: set up python
+          id:  set-python
+          uses: actions/setup-python@v5
+          with: 
+            python-version: 3.13
+
+        - name: install dependencies
+          run: pip install pytest
+
+        - name: Run tests cases
+          run: pytest
+
+
+
+
+
